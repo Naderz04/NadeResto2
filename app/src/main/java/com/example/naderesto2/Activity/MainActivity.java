@@ -46,18 +46,21 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void recyclerViewCategory(){
-        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
-        recyclerViewCategoryList=findViewById(R.id.recyclerView);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        recyclerViewCategoryList = findViewById(R.id.recyclerView);
         recyclerViewCategoryList.setLayoutManager(linearLayoutManager);
-        ArrayList<Category>category2 =new ArrayList<>();
-        category2.add(new Category(1,"Meet On Meat","drawable/naderestobeef.png"));
-        category2.add(new Category(2,"Pick a Chick","drawable/big_chicken.png"));
-        category2.add(new Category(3,"Link a Drink","drawable/pepsi.png"));
-        category2.add(new Category(4,"Side Stride","drawable/fries2.png"));
-        category2.add(new Category(5,"Grins with Greens","drawable/king_chicken_salad.png"));
-    adapter=new CategoryAdapter(category2);
-    recyclerViewCategoryList.setAdapter(adapter);
+
+        ArrayList<Category> category2 = new ArrayList<>();
+        category2.add(new Category(1, "Meet On Meat", R.drawable.naderestobeef));  // Use resource ID
+        category2.add(new Category(2, "Pick a Chick", R.drawable.big_chicken));    // Use resource ID
+        category2.add(new Category(3, "Link a Drink", R.drawable.pepsi));          // Use resource ID
+        category2.add(new Category(4, "Side Stride", R.drawable.fries2));          // Use resource ID
+        category2.add(new Category(5, "Grins with Greens", R.drawable.king_chicken_salad)); // Use resource ID
+
+        adapter = new CategoryAdapter(category2);
+        recyclerViewCategoryList.setAdapter(adapter);
     }
+
 
 
     private void recyclerViewPopularList(){
@@ -75,51 +78,27 @@ public class MainActivity extends AppCompatActivity {
         adapter2=new PopularAdapter(PopularList);
         recyclerViewPopularList.setAdapter(adapter2);
     }
+
     public void putDataInDatabase(){
         categoryDataSource.open();
-        Category beef =new Category(1,"Meet On Meat","drawable/naderestobeef.png");
-        Category chicken =new Category(2,"Pick a Chick","drawable/big_chicken.png");
-        Category Sides =new Category(3,"Side Stride","drawable/fries2.png");
-        Category Drinks =new Category(4,"Link a Drink","drawable/pepsi.png");
-        Category Salad =new Category(5,"Grins with Greens","drawable/king_chicken_salad.png");
 
-        boolean isInsertedBeef = categoryDataSource.insertCategory(beef);
-        boolean isInsertedChicken = categoryDataSource.insertCategory(chicken);
-        boolean isInsertedSides = categoryDataSource.insertCategory(Sides);
-        boolean isInsertedDrinks = categoryDataSource.insertCategory(Drinks);
-        boolean isInsertedSalad = categoryDataSource.insertCategory(Salad);
+        // Use resource IDs instead of strings
+        Category beef = new Category(0, "Meet On Meat", R.drawable.naderestobeef);
+        Category chicken = new Category(0, "Pick a Chick", R.drawable.big_chicken);
+        Category sides = new Category(0, "Side Stride", R.drawable.fries2);
+        Category drinks = new Category(0, "Link a Drink", R.drawable.pepsi);
+        Category salad = new Category(0, "Grins with Greens", R.drawable.king_chicken_salad);
+
+        categoryDataSource.insertCategory(beef);
+        categoryDataSource.insertCategory(chicken);
+        categoryDataSource.insertCategory(sides);
+        categoryDataSource.insertCategory(drinks);
+        categoryDataSource.insertCategory(salad);
+
+        // Log all categories to verify insertion
+        categoryDataSource.logAllCategories();
 
         categoryDataSource.close();
-
-        if (isInsertedBeef) {
-            Log.d("Category Insertion", "Beef category inserted successfully");
-        } else {
-            Log.d("Category Insertion", "Failed to insert Beef category");
-        }
-
-        if (isInsertedChicken) {
-            Log.d("Category Insertion", "Chicken category inserted successfully");
-        } else {
-            Log.d("Category Insertion", "Failed to insert Chicken category");
-        }
-
-        if (isInsertedSalad) {
-            Log.d("Category Insertion", "Salad category inserted successfully");
-        } else {
-            Log.d("Category Insertion", "Failed to insert Salad category");
-        }
-
-        if (isInsertedSides) {
-            Log.d("Category Insertion", "Sides category inserted successfully");
-        } else {
-            Log.d("Category Insertion", "Failed to insert Sides category");
-        }
-
-        if (isInsertedDrinks) {
-            Log.d("Category Insertion", "Drinks category inserted successfully");
-        } else {
-            Log.d("Category Insertion", "Failed to insert Drinks category");
-        }
-
     }
+
 }

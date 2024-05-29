@@ -1,44 +1,25 @@
 package com.example.naderesto2.Domain;
 
 public class Category {
+    private int categoryId;
+    private String categoryName;
+    private int categoryPhotoResId; // Use resource ID
 
-    private int CategoryId;
-    private String CategoryName;
-    private String CategoryPhoto;
-
-
-    public Category(int categoryId,String categoryName, String categoryPhoto) {
-        this.CategoryId=categoryId;
-        this.CategoryName = categoryName;
-        this.CategoryPhoto = categoryPhoto;
-    }
-
-
-    public String getCategoryPhoto() {
-
-        return CategoryPhoto;
-    }
-
-    public void setCategoryPhoto(String categoryPhoto) {
-        CategoryPhoto = categoryPhoto;
-    }
-
-    public String getCategoryName() {
-        return CategoryName;
-    }
-
-    public void setCategoryName(String categoryName) {
-
-        CategoryName = categoryName;
+    public Category(int categoryId, String categoryName, int categoryPhotoResId) {
+        this.categoryId = categoryId;
+        this.categoryName = categoryName;
+        this.categoryPhotoResId = categoryPhotoResId;
     }
 
     public int getCategoryId() {
-        return CategoryId;
+        return categoryId;
     }
 
-    public void setCategoryId(int categoryId) {
-
-        CategoryId = categoryId;
+    public String getCategoryName() {
+        return categoryName;
     }
 
+    public int getCategoryPhotoResId() {
+        return categoryPhotoResId;
+    }
 }
