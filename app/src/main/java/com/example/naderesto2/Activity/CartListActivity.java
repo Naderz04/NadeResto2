@@ -27,12 +27,12 @@ public class CartListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cart_list);
         managementCart=new ManagementCart(this);
 
-        initView();
+        /*initView();*/
     }
 
-    private void initView(){
+    /*private void initView(){
 
 
         recyclerView=findViewById(R.id.re)
-    }
+    }*/
 }

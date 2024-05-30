@@ -11,32 +11,23 @@ public class Item implements Serializable {
     private int categoryid;
     private int numberInCart;
 
-
-    public Item(int itemId,String itemName,Double itemPrice,String description,int URL,int categoryidint ,int numberInCart) {
+    public Item(int itemId, String itemName, Double itemPrice, String description, int URL, int categoryid, int numberInCart) {
         this.itemId = itemId;
-        this.itemName=itemName;
-        this.itemPrice=itemPrice;
-        this.description=description;
-        this.URL=URL;
-        this.categoryid=categoryidint;
-        this.numberInCart=numberInCart;
+        this.itemName = itemName;
+        this.itemPrice = itemPrice;
+        this.description = description;
+        this.URL = URL;
+        this.categoryid = categoryid;
+        this.numberInCart = numberInCart;
     }
 
-    public Item(String itemName,Double itemPrice,String description,int URL ) {
-        this.itemName=itemName;
-        this.itemPrice=itemPrice;
-        this.description=description;
-        this.URL=URL;
-        this.numberInCart=numberInCart;
-   }
-//    public Item(int itemId,String itemName,Double itemPrice,String description,String URL,int categoryidint ) {
-//        this.itemId = itemId;
-//        this.itemName=itemName;
-//        this.itemPrice=itemPrice;
-//        this.description=description;
-//        this.URL=URL;
-//        this.categoryid=categoryidint;
-//    }
+    public Item(String itemName, Double itemPrice, String description, int URL) {
+        this.itemName = itemName;
+        this.itemPrice = itemPrice;
+        this.description = description;
+        this.URL = URL;
+        this.numberInCart = 0;  // Initialize numberInCart to 0
+    }
 
     public int getNumberInCart() {
         return numberInCart;
@@ -46,20 +37,13 @@ public class Item implements Serializable {
         this.numberInCart = numberInCart;
     }
 
-
-
     public int getCategoryId() {
         return categoryid;
     }
 
-    public int getCategoryid() {
-        return categoryid;
-    }
-
-    public void setCategoryid(int categoryid) {
+    public void setCategoryId(int categoryid) {
         this.categoryid = categoryid;
     }
-
 
     public int getURL() {
         return URL;
@@ -100,6 +84,4 @@ public class Item implements Serializable {
     public void setItemId(int itemId) {
         this.itemId = itemId;
     }
-
-
 }
