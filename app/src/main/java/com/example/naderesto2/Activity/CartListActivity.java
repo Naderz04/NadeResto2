@@ -25,5 +25,14 @@ public class CartListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart_list);
+        managementCart=new ManagementCart(this);
+
+        initView();
+    }
+
+    private void initView(){
+
+
+        recyclerView=findViewById(R.id.re)
     }
 }

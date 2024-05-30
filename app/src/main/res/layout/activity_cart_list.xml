@@ -76,7 +76,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/DeliverySurviceTxt"
+                    android:id="@+id/TaxTxt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="$0"
