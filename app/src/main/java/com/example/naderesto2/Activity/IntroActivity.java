@@ -9,7 +9,7 @@ import com.example.naderesto2.R;
 
 public class IntroActivity extends BaseActivity {
     //    ActivityIntroBinding binding;
-    Button login;
+    Button startBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,11 +21,12 @@ public class IntroActivity extends BaseActivity {
     }
 
     public void initDisplay() {
-        login = findViewById(R.id.loginBtn);
-        login.setOnClickListener(new View.OnClickListener() {
+        startBtn = findViewById(R.id.start_button);
+        startBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(IntroActivity.this, MainActivity.class));
+                Intent intent = new Intent(IntroActivity.this, MainActivity.class);
+                startActivity(intent);
             }
         });
 

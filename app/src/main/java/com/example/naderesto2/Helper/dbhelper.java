@@ -18,9 +18,10 @@ public class dbhelper extends SQLiteOpenHelper {
             "id integer primary key autoincrement," +
             "itemname text not null,"+
             "itemdescription text,"+
-            "url text,"+
-            "fee real,"+
+            "url text not null,"+
+            "fee double,"+
             "category_id INTEGER,"+
+            "numberincart INTEGER,"+
             "FOREIGN KEY (category_id) REFERENCES category(category_id));";
 
 
@@ -47,6 +48,7 @@ public class dbhelper extends SQLiteOpenHelper {
         try {
             db.execSQL("DROP TABLE IF EXISTS item");
             db.execSQL("DROP TABLE IF EXISTS category");
+                db.execSQL("ALTER TABLE item ADD COLUMN numberincart INTEGER DEFAULT 0;"); // Add this line to handle upgrades
             onCreate(db);
             Log.d(TAG, "Tables upgraded");
         } catch (Exception e) {

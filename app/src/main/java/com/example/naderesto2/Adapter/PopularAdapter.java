@@ -1,5 +1,7 @@
 package com.example.naderesto2.Adapter;
 
+import android.content.Intent;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +14,7 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.naderesto2.Activity.ShowDetailActivity;
 import com.example.naderesto2.Domain.Item;
 import com.example.naderesto2.R;
 import com.google.android.material.transition.Hold;
@@ -39,12 +42,19 @@ public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.ViewHold
     public void onBindViewHolder(@NonNull PopularAdapter.ViewHolder holder, int position) {
         holder.title.setText(popularFood.get(position).getItemName());
         holder.fee.setText(String.valueOf( popularFood.get(position).getItemPrice()));
-
-        int drawableResourceId = holder.itemView.getContext().getResources().getIdentifier(popularFood.get(position).getURL(), "drawable", holder.itemView.getContext().getPackageName());
+        int drawableResourceId = holder.itemView.getContext().getResources().getIdentifier(String.valueOf( popularFood.get(position).getURL()), "drawable", holder.itemView.getContext().getPackageName());
 
         Glide.with(holder.itemView.getContext())
                 .load(drawableResourceId)
                 .into(holder.pic);
+        holder.addBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(holder.itemView.getContext(), ShowDetailActivity.class);
+                intent.putExtra("object",popularFood.get(position));
+                holder.itemView.getContext().startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -65,6 +75,7 @@ public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.ViewHold
             pic = itemView.findViewById(R.id.pic);
 
             addBtn = itemView.findViewById(R.id.addBtn);
+
         }
     }
 }

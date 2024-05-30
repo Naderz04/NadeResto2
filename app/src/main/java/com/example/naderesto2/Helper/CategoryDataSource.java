@@ -15,6 +15,7 @@ public class CategoryDataSource {
     private SQLiteDatabase database;
 
     public CategoryDataSource(Context context){
+
         dbHelper = new dbhelper(context);
     }
 

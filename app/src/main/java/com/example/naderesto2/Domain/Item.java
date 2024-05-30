@@ -1,16 +1,18 @@
 package com.example.naderesto2.Domain;
 
-public class Item {
+import java.io.Serializable;
+
+public class Item implements Serializable {
     private int itemId;
     private String itemName;
     private Double itemPrice;
     private String description;
-    private String URL;
+    private int URL;
     private int categoryid;
     private int numberInCart;
 
 
-    public Item(int itemId,String itemName,Double itemPrice,String description,String URL,int categoryidint ,int numberInCart) {
+    public Item(int itemId,String itemName,Double itemPrice,String description,int URL,int categoryidint ,int numberInCart) {
         this.itemId = itemId;
         this.itemName=itemName;
         this.itemPrice=itemPrice;
@@ -20,7 +22,7 @@ public class Item {
         this.numberInCart=numberInCart;
     }
 
-    public Item(String itemName,Double itemPrice,String description,String URL ) {
+    public Item(String itemName,Double itemPrice,String description,int URL ) {
         this.itemName=itemName;
         this.itemPrice=itemPrice;
         this.description=description;
@@ -44,8 +46,7 @@ public class Item {
         this.numberInCart = numberInCart;
     }
 
-    public Item() {
-    }
+
 
     public int getCategoryId() {
         return categoryid;
@@ -60,11 +61,11 @@ public class Item {
     }
 
 
-    public String getURL() {
+    public int getURL() {
         return URL;
     }
 
-    public void setURL(String URL) {
+    public void setURL(int URL) {
         this.URL = URL;
     }
 

@@ -27,7 +27,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginBtn"
+        app:layout_constraintTop_toBottomOf="@+id/start_button"
         app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/footer_png"
         tools:src="@drawable/footer_png" />
@@ -74,13 +74,12 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
-        android:id="@+id/loginBtn"
+        android:id="@+id/start_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/brown"
         android:fontFamily="sans-serif-condensed"
         android:text="Get Started"
-
         android:textColor="@color/white"
         android:textSize="16sp"
         android:textStyle="bold"
