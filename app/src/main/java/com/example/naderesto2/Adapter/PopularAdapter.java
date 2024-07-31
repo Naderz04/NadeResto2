@@ -55,6 +55,15 @@ public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.ViewHold
                 holder.itemView.getContext().startActivity(intent);
             }
         });
+        holder.PopLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(holder.itemView.getContext(), ShowDetailActivity.class);
+                intent.putExtra("object",popularFood.get(position));
+                holder.itemView.getContext().startActivity(intent);
+            }
+        });
+
     }
 
     @Override
@@ -66,7 +75,7 @@ public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.ViewHold
         TextView title,fee;
         ImageView pic;
         TextView addBtn;
-
+        ConstraintLayout PopLayout;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -75,6 +84,7 @@ public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.ViewHold
             pic = itemView.findViewById(R.id.pic);
 
             addBtn = itemView.findViewById(R.id.addBtn);
+            PopLayout=itemView.findViewById(R.id.poplayout);
 
         }
     }

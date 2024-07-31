@@ -3,11 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:padding="16dp">
+    android:background="@drawable/rounded_items"
+    android:padding="16dp"
+    android:layout_margin="6dp">
 
     <ImageView
         android:id="@+id/itemImage"
-        android:layout_width="64dp"
+        android:layout_width="63dp"
         android:layout_height="64dp"
         android:layout_marginEnd="16dp"
         android:src="@drawable/naderestobeef"/>
@@ -22,25 +24,27 @@
             android:id="@+id/itemName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/brown"
             android:text="Item Name"
             android:textStyle="bold"
             android:textSize="16sp"/>
 
-        <TextView
-            android:id="@+id/itemDescription"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Item Description"
-            android:textSize="14sp"
-            android:maxLines="2"
-            android:ellipsize="end"/>
-
-        <TextView
-            android:id="@+id/itemPrice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="$0.00"
-            android:textStyle="bold"
-            android:textSize="14sp"/>
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/itemPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="$0.00"
+        android:textColor="@color/brown"
+        android:textSize="17sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:text="$" />
+
 </LinearLayout>

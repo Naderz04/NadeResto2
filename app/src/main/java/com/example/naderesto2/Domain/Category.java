@@ -11,8 +11,24 @@ public class Category {
         this.categoryPhotoResId = categoryPhotoResId;
     }
 
+    public Category() {
+    }
+
     public int getCategoryId() {
+
         return categoryId;
+    }
+
+    public void setCategoryPhotoResId(int categoryPhotoResId) {
+        this.categoryPhotoResId = categoryPhotoResId;
+    }
+
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
+    }
+
+    public void setCategoryId(int categoryId) {
+        this.categoryId = categoryId;
     }
 
     public String getCategoryName() {

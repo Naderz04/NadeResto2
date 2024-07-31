@@ -1,5 +1,7 @@
 package com.example.naderesto2.Adapter;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,14 +14,22 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.naderesto2.Activity.CategoryItemsActivity;
+import com.example.naderesto2.Activity.IntroActivity;
+import com.example.naderesto2.Activity.ReviewsActivity;
+import com.example.naderesto2.Activity.ShowDetailActivity;
 import com.example.naderesto2.Domain.Category;
+import com.example.naderesto2.Domain.Item;
 import com.example.naderesto2.R;
 
 import java.util.ArrayList;
 
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHolder> {
 
+    Context context;
     ArrayList<Category> categoryDomains;
+    private ArrayList<Category> items;
+
 
     public CategoryAdapter(ArrayList<Category> categoryDomains) {
         this.categoryDomains = categoryDomains;
@@ -40,26 +50,77 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
             case 0: {
                 picUrl = "naderestobeef";
                 holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(), R.drawable.cat_background));
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent=new Intent(holder.itemView.getContext(), CategoryItemsActivity.class);
+                        intent.putExtra("category_id",categoryDomains.get(position).getCategoryId());
+                        intent.putExtra("categoryname",categoryDomains.get(position).getCategoryName());
+
+                        holder.itemView.getContext().startActivity(intent);
+                    }
+                });
                 break;
             }
             case 1: {
                 picUrl = "big_chicken";
                 holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(), R.drawable.cat_background));
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent=new Intent(holder.itemView.getContext(), CategoryItemsActivity.class);
+                        intent.putExtra("category_id",categoryDomains.get(position).getCategoryId());
+                        intent.putExtra("categoryname",categoryDomains.get(position).getCategoryName());
+                        intent.putExtra("categoryphoto",categoryDomains.get(position).getCategoryPhotoResId());
+
+                        holder.itemView.getContext().startActivity(intent);
+                    }
+                });
                 break;
             }
             case 2: {
                 picUrl = "pepsi";
                 holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(), R.drawable.cat_background));
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent=new Intent(holder.itemView.getContext(), CategoryItemsActivity.class);
+                        intent.putExtra("category_id",categoryDomains.get(position).getCategoryId());
+                        intent.putExtra("categoryname",categoryDomains.get(position).getCategoryName());
+
+                        holder.itemView.getContext().startActivity(intent);
+                    }
+                });
                 break;
             }
             case 3: {
                 picUrl = "fries2";
                 holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(), R.drawable.cat_background));
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent=new Intent(holder.itemView.getContext(), CategoryItemsActivity.class);
+                        intent.putExtra("category_id",categoryDomains.get(position).getCategoryId());
+                        intent.putExtra("categoryname",categoryDomains.get(position).getCategoryName());
+
+                        holder.itemView.getContext().startActivity(intent);
+                    }
+                });
                 break;
             }
             case 4: {
                 picUrl = "king_chicken_salad";
                 holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(), R.drawable.cat_background));
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent=new Intent(holder.itemView.getContext(), CategoryItemsActivity.class);
+                        intent.putExtra("category_id",categoryDomains.get(position).getCategoryId());
+                        intent.putExtra("categoryname",categoryDomains.get(position).getCategoryName());
+
+                        holder.itemView.getContext().startActivity(intent);
+                    }
+                });
                 break;
             }
         }
@@ -67,8 +128,14 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
         Glide.with(holder.itemView.getContext())
                 .load(drawableResourceId)
                 .into(holder.categoryPic);
-    }
 
+
+
+    }
+    public void updateList(ArrayList<Category> newList) {
+        items = newList;
+        notifyDataSetChanged();
+    }
     @Override
     public int getItemCount() {
         return categoryDomains.size();
@@ -85,5 +152,8 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
             categoryPic = itemView.findViewById(R.id.categoryPic);
             mainLayout = itemView.findViewById(R.id.mainLayout);
         }
+    }
+    public interface OnCategoryClickListener {
+        void onCategoryClick(int categoryid);
     }
 }

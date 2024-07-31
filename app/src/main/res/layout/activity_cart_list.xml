@@ -4,58 +4,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bej"
     tools:context=".Activity.CartListActivity">
 
+    <ImageView
+        android:id="@+id/backBtn"
+        android:layout_width="50dp"
+        android:layout_marginTop="5dp"
+        android:layout_height="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/arrowback" />
+
     <ScrollView
+        android:id="@+id/scrollView3"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="148dp"
+        app:layout_constraintBottom_toTopOf="@+id/coordinatorLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/textview12"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="My Cart"
-                android:layout_marginTop="32dp"
-                android:textAlignment="center"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:textColor="@color/brown"/>
-
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView3"
+                android:layout_marginTop="30dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="4dp">
-
-                <TextView
-                    android:id="@+id/textview42"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-
-                    android:text="Items Total:"
-                    android:textStyle="bold"
-                    android:textSize="18sp"/>
-
-                <TextView
-                    android:id="@+id/itemsTotalTxt"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:textSize="18sp"
-                    android:text="$0" />
-            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -67,19 +50,59 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/TextView29"
+                    android:id="@+id/textview42"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Delivery Services"
+                    android:fontFamily="sans-serif-condensed"
+
+                    android:text="Items Total:"
+                    android:textColor="@color/brown"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/TaxTxt"
+                    android:id="@+id/totalfeetext"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="$0"
+                    android:textColor="@color/brown"
+                    android:fontFamily="sans-serif-condensed"
+
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="16dp"
+
+                android:layout_marginBottom="4dp"
+                android:orientation="horizontal"
+                android:textColor="@color/brown">
+
+                <TextView
+                    android:id="@+id/TextView29"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif-condensed"
+
+                    android:text="Delivery Services"
+                    android:textColor="@color/brown"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/deliveryTxt"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="$0"
+                    android:textColor="@color/brown"
                     android:textSize="18sp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -95,22 +118,26 @@
 
                 <TextView
                     android:id="@+id/textView23"
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
                     android:layout_marginTop="4dp"
                     android:layout_marginEnd="16dp"
                     android:layout_marginBottom="4dp"
                     android:layout_weight="1"
                     android:text="Tax"
+                    android:textColor="@color/brown"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/TotalTaxTxt"
+
+
+                    android:id="@+id/taxTxt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="$0"
+                    android:textColor="@color/brown"
                     android:textSize="18sp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -118,47 +145,54 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="4dp"
                 android:layout_marginEnd="16dp"
-                android:layout_marginBottom="4dp">
+                android:layout_marginBottom="4dp"
+                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/textView24"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Total:"
-                    android:layout_marginStart="16dp"
                     android:layout_marginTop="4dp"
                     android:layout_marginEnd="16dp"
                     android:layout_marginBottom="4dp"
+                    android:layout_weight="1"
+                    android:text="Total:"
+                    android:fontFamily="sans-serif-condensed"
+
+                    android:textColor="@color/brown"
                     android:textSize="30sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/TotalTxt"
                     android:layout_width="wrap_content"
+
                     android:layout_height="wrap_content"
                     android:text="$0"
+                    android:textColor="@color/brown"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
             </LinearLayout>
 
             <TextView
-                android:id="@+id/textView6"
+                android:id="@+id/checkoutText"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:gravity="center"
                 android:layout_margin="16dp"
-                android:textSize="25sp"
-                android:textStyle="bold"
-                android:textColor="@color/white"
-                android:background="@drawable/orangebutton"
                 android:layout_weight="1"
-                android:text="CheckOut" />
+                android:background="@drawable/orangebutton"
+                android:backgroundTint="@color/brown"
+                android:gravity="center"
+                android:fontFamily="sans-serif-condensed"
+
+                android:text="CheckOut"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                android:textStyle="bold" />
 
 
         </LinearLayout>
@@ -166,9 +200,26 @@
 
     </ScrollView>
 
+    <TextView
+        android:id="@+id/emptyTxt"
+        android:layout_width="105dp"
+        android:layout_height="81dp"
+        android:text="Your Cart Is Empty"
+        android:textSize="19sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        android:fontFamily="sans-serif-condensed"
+        android:layout_marginBottom="90dp"
+        app:layout_constraintBottom_toBottomOf="@+id/coordinatorLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/scrollView3" />
+
+
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="401dp"
         android:layout_height="85dp"
+        android:id="@+id/coordinatorLayout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -180,13 +231,13 @@
             android:layout_gravity="bottom"
             android:backgroundTint="#f6f6f6"
             app:fabCradleRoundedCornerRadius="50dp"
-            app:fabCradleVerticalOffset="6dp" />
+            app:fabCradleVerticalOffset="6dp"/>
 
         <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
-            android:layout_height="77dp"
-            android:paddingTop="10dp">
+            android:paddingTop="10dp"
+            android:layout_height="77dp">
 
             <LinearLayout
                 android:id="@+id/HomeBtn"
@@ -196,11 +247,11 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/imageView9"
+                    android:id="@+id/homeBtnNav"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:src="@drawable/home" />
+                    android:src="@drawable/home"
+                    android:layout_weight="1" />
 
                 <TextView
                     android:id="@+id/textView19"
@@ -221,7 +272,7 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/imageView8"
+                    android:id="@+id/personnav"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -248,7 +299,7 @@
                 android:visibility="invisible">
 
                 <ImageView
-                    android:id="@+id/imageView7"
+                    android:id="@+id/cartbtnn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -277,13 +328,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    app:srcCompat="@drawable/support" />
+                    app:srcCompat="@drawable/reviewicon" />
 
                 <TextView
                     android:id="@+id/supporttextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Support"
+                    android:text="Reviews"
                     android:textAlignment="center"
                     android:textColor="@color/brown"
                     android:textSize="12sp" />
@@ -316,6 +367,7 @@
         </LinearLayout>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/CartNavBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:elevation="3dp"
@@ -329,3 +381,4 @@
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
+

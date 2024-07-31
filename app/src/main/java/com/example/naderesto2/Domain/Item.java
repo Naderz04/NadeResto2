@@ -44,7 +44,6 @@ public class Item implements Serializable {
     public void setCategoryId(int categoryid) {
         this.categoryid = categoryid;
     }
-
     public int getURL() {
         return URL;
     }
